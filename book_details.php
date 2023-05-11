@@ -15,8 +15,8 @@ if (isset($_GET['book_id'])) {
         $_SESSION['cart'][] = $bookId;
     }
 
-    // Redirect the user back to the book details page or the cart page
-    header("Location: book_details.php?book_id=$bookId");
+    // Redirect the user to the cart page or any other appropriate page
+    header("Location: cart.php");
     exit();
 }
 ?>

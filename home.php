@@ -30,7 +30,7 @@
 				<li><a href="?category=fiction">Fiction</a></li>
 				<li><a href="?category=non-fiction">Non-fiction</a></li>
 				<li><a href="?category=biography">Biography</a></li>
-				<li><a href="?category=children">Children's Books</a></li>
+				<li><a href="?category=children">Children's Books"</a></li>
 			</ul>
 		</section>
 		<section id="featured-books">
@@ -54,7 +54,7 @@
 				$category = isset($_GET['category']) ? $_GET['category'] : '';
 
 				// Build SQL query based on category
-				$sql = 'SELECT b.Title, b.Price, b.ImageURL, a.Name 
+				$sql = 'SELECT b.BookID, b.Title, b.Price, b.ImageURL, a.Name 
 						FROM Books b
 						JOIN Authors a ON b.AuthorID = a.AuthorID';
 				if ($category) {
@@ -72,12 +72,22 @@
                                 <h3>' . $row['Title'] . '</h3>
                                 <p>Author: ' . $row['Name'] . '</p>
                                 <p class="price">$' . $row['Price'] . '</p>
-                                <a href="#" class="add-to-cart">Add to Cart</a>
+                                <a href="book_details.php?book_id=' . $row['BookID'] . '" class="add-to-cart">Add to Cart</a>
                             </div>
                           </li>';
 					}
 				} else {
 					echo 'No books found.';
+				}
+				$conn->close();
+				?>
+
+				Add to Cart</a>
+				</div>
+				</li>';
+				}
+				} else {
+				echo 'No books found.';
 				}
 				$conn->close();
 				?>
