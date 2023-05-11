@@ -54,9 +54,8 @@
 				$category = isset($_GET['category']) ? $_GET['category'] : '';
 
 				// Build SQL query based on category
-				$sql = 'SELECT b.BookID, b.Title, b.Price, b.ImageURL, a.Name 
-						FROM Books b
-						JOIN Authors a ON b.AuthorID = a.AuthorID';
+				$sql = 'SELECT BookID, Title, Price, ImageURL, 
+				(SELECT Name FROM Authors WHERE Authors.AuthorID = Books.AuthorID) AS Name FROM Books';
 				if ($category) {
 					$sql .= " WHERE b.categoryId = (SELECT categoryId FROM Categories WHERE name ='$category');";
 				}
