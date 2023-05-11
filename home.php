@@ -30,7 +30,7 @@
 				<li><a href="?category=fiction">Fiction</a></li>
 				<li><a href="?category=non-fiction">Non-fiction</a></li>
 				<li><a href="?category=biography">Biography</a></li>
-				<li><a href="?category=children">Children's Books"</a></li>
+				<li><a href="?category=children">Children's Books</a></li>
 			</ul>
 		</section>
 		<section id="featured-books">
@@ -78,16 +78,6 @@
 					}
 				} else {
 					echo 'No books found.';
-				}
-				$conn->close();
-				?>
-
-				Add to Cart</a>
-				</div>
-				</li>';
-				}
-				} else {
-				echo 'No books found.';
 				}
 				$conn->close();
 				?>

@@ -14,6 +14,19 @@ if (isset($_GET['book_id'])) {
     if (!in_array($bookId, $_SESSION['cart'])) {
         $_SESSION['cart'][] = $bookId;
     }
+    $servername = 'localhost';
+	$username = 'root';
+	$password = 'root';
+	$dbname = 'bookhive';
+	// Create connection
+	$conn = new mysqli($servername, $username, $password, $dbname);
+
+	// Check connection
+	if ($conn->connect_error) {
+		die('Connection failed: ' . $conn->connect_error);
+	}
+
+    $sql = ''
 
     // Redirect the user to the cart page or any other appropriate page
     header("Location: cart.php");
