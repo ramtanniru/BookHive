@@ -15,21 +15,23 @@ if (isset($_GET['book_id'])) {
         $_SESSION['cart'][] = $bookId;
     }
     $servername = 'localhost';
-	$username = 'root';
-	$password = 'root';
-	$dbname = 'bookhive';
-	// Create connection
-	$conn = new mysqli($servername, $username, $password, $dbname);
+    $username = 'root';
+    $password = 'root';
+    $dbname = 'bookhive';
+    // Create connection
+    $conn = new mysqli($servername, $username, $password, $dbname);
 
-	// Check connection
-	if ($conn->connect_error) {
-		die('Connection failed: ' . $conn->connect_error);
-	}
+    // Check connection
+    if ($conn->connect_error) {
+        die('Connection failed: ' . $conn->connect_error);
+    }
 
-    $sql = ''
+    $sql = "Insert into Order_Items(BookID,Price,Quantity) values ('$bookId',(Select Price from Books where BookID='$bookId'),1);";
+    $res = $conn->query($sql);
+    $conn->close();
 
     // Redirect the user to the cart page or any other appropriate page
-    header("Location: cart.php");
+    header("Location: home.php");
     exit();
 }
 ?>

@@ -12,7 +12,7 @@
 		<nav>
 			<ul>
 				<li><a href="?">Home</a></li>
-				<li><a href="?">Cart</a></li>
+				<li><a href="cart2.php">Cart</a></li>
 				<li><a href="?">About us</a></li>
 				<li><a href="login.htm">Logout</a></li>
 			</ul>
