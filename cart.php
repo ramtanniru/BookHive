@@ -43,6 +43,9 @@ if (!isset($_SESSION['cart']) || empty($_SESSION['cart'])) {
         }
 
         echo '</table>';
+        
+        // Add the "Total" button
+        echo '<button onclick="calculateTotal()">Total</button>';
     } else {
         echo 'No books found in your cart.';
     }
@@ -89,10 +92,19 @@ if (!isset($_SESSION['cart']) || empty($_SESSION['cart'])) {
             xhr.send('bookId=' + bookId);
         }
     }
-    <?php
-    unset($_SESSION['cart']);
-    ?>
+    
+    function calculateTotal() {
+        // Send an AJAX request to retrieve the total price
+        var xhr = new XMLHttpRequest();
+        xhr.open('POST', 'calculate_total.php');
+        xhr.setRequestHeader('Content-Type', 'application/x-www-form-urlencoded');
+        xhr.onload = function () {
+            if (xhr.status === 200) {
+                console.log(xhr.responseText);
+                // Display the total price to the user
+                alert('Total Price: $' + xhr.responseText);
+            }
+        };
+        xhr.send();
+    }
 </script>
-<html>
-    <body>
-        
