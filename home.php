@@ -12,8 +12,8 @@
 		<nav>
 			<ul>
 				<li><a href="?">Home</a></li>
-				<li><a href="cart2.php">Cart</a></li>
-				<li><a href="?">Others</a></li>
+				<li><a href="cart.php">Cart</a></li>
+				<li><a href="others.php">Others</a></li>
 				<li><a href="login.htm">Logout</a></li>
 			</ul>
 		</nav>
